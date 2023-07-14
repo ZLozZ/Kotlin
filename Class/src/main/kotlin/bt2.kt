@@ -5,3 +5,7 @@ Bài 2: Định nghĩa interface mô tả các hành động sau. Triển khai c
 3. Kiểm tra số đảo của n có phải số nguyên tố không
 4. Kiểm tra tổng các chữ số của n có nguyên tố không
  */
+
+fun main(args: Array<String>) {
+
+}
