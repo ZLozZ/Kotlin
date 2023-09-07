@@ -2,9 +2,10 @@ package com.example.model
 
 import java.io.Serializable
 
-class SanPham: Serializable{
+class SanPham(picture:Int, position: String){
     private var picture:Int= 0
     private var position:String = ""
+
 
     fun getPicture():Int{
         return picture
