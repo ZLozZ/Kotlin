@@ -12,6 +12,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var arrDh:ArrayAdapter<String>
     lateinit var arrMt:ArrayAdapter<String>
     private lateinit var spninerAdapter: ArrayAdapter<String>
-    lateinit var adapterAuto:ArrayAdapter<String>
+    private lateinit var adapterAuto:ArrayAdapter<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -106,8 +107,10 @@ class MainActivity : AppCompatActivity() {
         spnSp.adapter = spninerAdapter
 
         autoText = findViewById(R.id.autoText)
-        adapterAuto = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lookText)
+        autoText.addTextChangedListener();
+        adapterAuto = ArrayAdapter(this, android.R.layout.simple_list_item_1, lookText)
         autoText.setAdapter(adapterAuto)
+
 
         gd = findViewById(R.id.Gd)
 
