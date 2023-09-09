@@ -38,7 +38,9 @@
             android:id="@+id/autoText"
             android:layout_width="222dp"
             android:layout_height="wrap_content"
-            android:completionThreshold="1"></AutoCompleteTextView>
+            android:completionThreshold="1">
+
+        </AutoCompleteTextView>
         <Button
             android:id="@+id/btnInput"
             android:layout_width="match_parent"
@@ -56,9 +58,10 @@
         android:textColor="@color/white">
     </TextView>
     <GridView
-        android:id="@+id/Grid"
+        android:id="@+id/Gd"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:numColumns="3">
     </GridView>
 
 </LinearLayout>

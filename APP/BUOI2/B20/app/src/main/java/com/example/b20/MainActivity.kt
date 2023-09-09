@@ -2,6 +2,7 @@ package com.example.b20
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -9,6 +10,7 @@ import android.widget.ListView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.view.get
+import kotlin.reflect.typeOf
 
 class MainActivity : AppCompatActivity() {
     lateinit var spnSp:Spinner
@@ -27,22 +29,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        AddControls()
-        AddEvents()
-        AddEventList()
+        addControls()
+        addEvents()
+        addEventList()
     }
 
-    private fun AddEventList() {
+    private fun addEventList() {
         lSp.setOnItemClickListener{parent, view, position, id ->
-            Toast.makeText(this, "position: "+position+"Value: "+lSp.getItemAtPosition(position),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,
+                "position: "+position+"Value: "+ when(spnSp.selectedItemId){
+                    0L -> "Điện thoại => ${arrDt[position].ten}"
+                    1L -> "Máy tính => ${arrMt[position].ten}"
+                    else -> "Đồng hồ => ${arrDh[position].ten}" }
+                ,Toast.LENGTH_SHORT).show()
         }
     }
 
-    fun AddEvents(){
+    fun addEvents(){
         spnSp.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>,
                                         view: View, position: Int, id: Long) {
+                Log.d("Lhjhjk", "value arrSp-> ${arrSp[position]}")
                 if(arrSp[position] == arrSp[0]){
                     lSp.adapter = CustomAdapter(this@MainActivity, arrDt)
                 }else if(arrSp[position] == arrSp[1]) {
@@ -58,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun AddControls(){
+    fun addControls(){
         spnSp = findViewById(R.id.spinnerSp)
         spninerAdapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, arrSp)
