@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         btnIn.setOnClickListener{
             var textToAuto = autoText.text.toString()
 //            Toast.makeText(this, textToAuto, Toast.LENGTH_SHORT).show()
-            lookText.add(textToAuto)
+            adapterAuto.add(textToAuto)
             adapterAuto.notifyDataSetChanged()
 
             when(spnSp.selectedItemId){
