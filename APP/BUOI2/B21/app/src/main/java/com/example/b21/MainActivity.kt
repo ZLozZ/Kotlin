@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 val title = builder.setTitle("Thông tin")
                 builder.setMessage(
                     "Position: $position Value: " +when(spnSp.selectedItemId){
-                    0L->brandDt[position]
+                    0L->arrDt.getItem(position)
                     1L->brandMt[position]
                     else->brandDh[position]
                 })

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     var arrDt: ArrayList<Ds> = ArrayList()
     var arrDh: ArrayList<Ds> = ArrayList()
     var arrMt: ArrayList<Ds> = ArrayList()
-    lateinit var spninerAdapter: ArrayAdapter<String>
+    private lateinit var spninerAdapter: ArrayAdapter<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
