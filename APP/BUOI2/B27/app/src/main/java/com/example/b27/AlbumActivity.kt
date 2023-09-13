@@ -19,7 +19,6 @@ class AlbumActivity : AppCompatActivity() {
 
     private fun addEvents(){
 
-
     }
 
     private fun addControls() {

@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.TextView
 
-class CustomAdapter(var context: Context, private var album:ArrayList<AlbumMusic>): BaseAdapter(), ListAdapter{
+class CustomAdapter(var context: Context, private var album: MutableList<AlbumMusic>): BaseAdapter(), ListAdapter{
 
     class ViewHolder(row:View){
         var txtStt: TextView
