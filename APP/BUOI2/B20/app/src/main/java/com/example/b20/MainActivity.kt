@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         for(i in 0..(brandDt.size-1)){
             arrDt.add(Ds(brandDt[i], imgDt[i]))
         }
-
+        Toast.makeText(this, "$arrDt", Toast.LENGTH_SHORT).show()
         for(i in 0..(brandDh.size-1)){
             arrDh.add(Ds(brandDh[i], imgSp[0]))
         }

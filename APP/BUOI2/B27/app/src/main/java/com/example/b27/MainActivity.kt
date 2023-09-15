@@ -7,13 +7,11 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btnShow:Button
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     var stt:Int = 0
 
     private var adapterAlbum:MutableList<String> = mutableListOf()
-    private lateinit var arrAlbum:MutableList<AlbumMusic>
+    private var arrAlbum:MutableList<AlbumMusic> = mutableListOf<AlbumMusic>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +35,8 @@ class MainActivity : AppCompatActivity() {
     private fun addEventsBtn() {
         btnShow.setOnClickListener{
             val intent = Intent(this, AlbumActivity::class.java)
-            val bundle = Bundle()
-            bundle.putStringArrayList("arrMusic", ArrayList(arrAlbum))
+            arrAlbum.add(AlbumMusic(1,"album1", "NHAC"))
+            intent.putExtra("arrMusic", arrAlbum as ArrayList<AlbumMusic>)
             startActivity(intent)
         }
 
@@ -69,11 +67,9 @@ class MainActivity : AppCompatActivity() {
             window.attributes = windowAttributes
         }
 
-        if(gravity == Gravity.BOTTOM){
-            dialog.setCancelable(true);
-        }else{
-            dialog.setCancelable(false);
-        }
+
+        dialog.setCancelable(true)
+
 
         val editDialogName:EditText = dialog.findViewById(R.id.editDialogName)
         val editDialogCode:EditText =  dialog.findViewById(R.id.editDialogCode)
