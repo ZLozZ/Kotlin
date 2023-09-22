@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
-class CustomAdapter(var context: Context, private var album: MutableList<Album>) : BaseAdapter() {
-
+class CustomAdapterSong(var context: Context, private var song: MutableList<Song>):BaseAdapter(){
     class ViewHolder(row: View) {
         var txtStt: TextView
         var txtCode: TextView
@@ -22,11 +21,11 @@ class CustomAdapter(var context: Context, private var album: MutableList<Album>)
     }
 
     override fun getCount(): Int {
-        return album.size
+        return song.size
     }
 
     override fun getItem(position: Int): Any {
-        return album[position]
+        return song[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -37,11 +36,12 @@ class CustomAdapter(var context: Context, private var album: MutableList<Album>)
         val view = convertview ?: LayoutInflater.from(context)
             .inflate(R.layout.item, parent, false) //Khởi tạo view
         val viewHolder = ViewHolder(view)
-        val ds: Album =
-            getItem(position) as Album // Lấy album tại vị trí position trong danh sách album
+        val ds: Song =
+            getItem(position) as Song // Lấy album tại vị trí position trong danh sách album
         viewHolder.txtStt.text = ds.stt.toString()
-        viewHolder.txtCode.text = ds.code
-        viewHolder.txtName.text = ds.name
+        viewHolder.txtCode.text = ds.nameSong
+        viewHolder.txtName.text = ds.date
         return view as View
     }
+
 }

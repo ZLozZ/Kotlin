@@ -12,18 +12,13 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private lateinit var btnShow:Button
     private lateinit var btnAdd:Button
-    lateinit var btnManage:Button
+    private lateinit var btnManage:Button
     lateinit var listMusic: ListView
-
-    var stt:Int = 0
-
-    private var adapterAlbum:MutableList<String> = mutableListOf()
-    private var arrAlbum:MutableList<AlbumMusic> = mutableListOf<AlbumMusic>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,19 +30,23 @@ class MainActivity : AppCompatActivity() {
     private fun addEventsBtn() {
         btnShow.setOnClickListener{
             val intent = Intent(this, AlbumActivity::class.java)
-            arrAlbum.add(AlbumMusic(1,"album1", "NHAC"))
-            intent.putExtra("arrMusic", arrAlbum as ArrayList<AlbumMusic>)
             startActivity(intent)
         }
 
         btnAdd.setOnClickListener{
             addEventDialog(Gravity.CENTER)
         }
+
+        btnManage.setOnClickListener{
+            val intent = Intent(this, SongActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun addControls() {
         btnShow = findViewById(R.id.btnShow)
         btnAdd = findViewById(R.id.btnAddAlbum)
+        btnManage =findViewById(R.id.btnManage)
 
     }
 
@@ -67,9 +66,7 @@ class MainActivity : AppCompatActivity() {
             window.attributes = windowAttributes
         }
 
-
         dialog.setCancelable(true)
-
 
         val editDialogName:EditText = dialog.findViewById(R.id.editDialogName)
         val editDialogCode:EditText =  dialog.findViewById(R.id.editDialogCode)
@@ -83,8 +80,8 @@ class MainActivity : AppCompatActivity() {
         btnDialogSave.setOnClickListener{
             val name = editDialogName.text.toString()
             val code = editDialogCode.text.toString()
-            stt += 1
-            arrAlbum.add(AlbumMusic(stt,code,name))
+            AlbumManager.addAlbum(Album(AlbumManager.getSize()+1, code, name, arrayListOf()))
+//            Toast.makeText(this, "${AlbumManager.getSize()}", Toast.LENGTH_SHORT).show()
         }
         dialog.show()
     }

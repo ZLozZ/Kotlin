@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/black"
     android:backgroundTint="#090707"
-    android:padding="20dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thêm mới Album"
+        android:text="View Detail"
         android:textColor="@color/white"
         android:textSize="20dp"></TextView>
 
@@ -62,36 +61,31 @@
             android:textColor="@color/black"></EditText>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:weightSum="5"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnDialogClear"
+            android:id="@+id/btnClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:backgroundTint="#D6CECE"
             android:text="Xóa Trắng"
-            android:layout_weight="2"
             android:textAllCaps="false"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/btnDialogSave"
-            android:layout_width="150dp"
+            android:id="@+id/btnDialogUpdate"
+            android:layout_width="246dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_gravity="right|clip_vertical"
             android:layout_marginRight="5dp"
-            android:layout_marginStart="20dp"
             android:backgroundTint="#D6CECE"
-            android:layout_weight="3"
-            android:text="Lưu Album này"
+            android:text="Update"
             android:textAllCaps="false"
             android:textColor="@color/black" />
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

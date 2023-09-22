@@ -12,7 +12,7 @@ import android.widget.ListAdapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(var context:Context, var dd:ArrayList<Ds>): BaseAdapter(), ListAdapter {
+class CustomAdapter(var context:Context, var dd:ArrayList<Ds>): BaseAdapter() {
 
     class ViewHolder(row:View){
         var textViewten:TextView
