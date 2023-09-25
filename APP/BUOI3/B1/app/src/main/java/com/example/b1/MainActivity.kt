@@ -14,11 +14,11 @@ import java.lang.Exception
 import java.util.Scanner
 
 class MainActivity : AppCompatActivity() {
-    lateinit var btnRead:Button
-    lateinit var btnWrite:Button
-    lateinit var editContent:EditText
+    lateinit var btnRead: Button
+    lateinit var btnWrite: Button
+    lateinit var editContent: EditText
 
-    private var externalStorageDirectory = Environment.getExternalStorageDirectory()
+    private var externalStorageDirectory = "${Environment.getExternalStorageDirectory()}/${Environment.DIRECTORY_DOWNLOADS}"
     private var fileName = "mydata.txt"
     private var file = File(externalStorageDirectory, fileName)
 
@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 //                e.printStackTrace()
 //            }
 //        }
+        //External
         btnWrite.setOnClickListener{
             val content = editContent.text.toString()
             try {
@@ -84,10 +85,42 @@ class MainActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+        //cache
+//        btnWrite.setOnClickListener {
+//            val content = editContent.text.toString()
+//            try {
+//                val cacheFile = File(cacheDir, "mydata.txt")
+//                val outputStream = FileOutputStream(cacheFile)
+//                outputStream.write(content.toByteArray())
+//                outputStream.close()
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//        }
+//
+//        btnRead.setOnClickListener {
+//            val cacheFileName = "mydata.txt"
+//            val cacheFile = File(cacheDir, cacheFileName)
+//
+//            try {
+//                val inputStream = FileInputStream(cacheFile)
+//                val length = cacheFile.length().toInt()
+//                val buffer = ByteArray(length)
+//
+//                inputStream.read(buffer)
+//                inputStream.close()
+//
+//                val cacheFileContent = String(buffer, charset("UTF-8"))
+//                editContent.setText(cacheFileContent)
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//
+//        }
     }
 
 
-    private fun addControls(){
+    private fun addControls() {
         btnRead = findViewById(R.id.btnRead)
         btnWrite = findViewById(R.id.btnWrite)
         editContent = findViewById(R.id.editConntent)

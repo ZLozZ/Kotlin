@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:gravity="start"
-        android:includeFontPadding="true"></EditText>
+        android:includeFontPadding="true">
+    </EditText>
 
     <Button
         android:id="@+id/btnWrite"
