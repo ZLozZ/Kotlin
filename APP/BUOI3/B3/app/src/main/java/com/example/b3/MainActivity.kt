@@ -34,11 +34,10 @@ class MainActivity : AppCompatActivity() {
 
 
     private var arrEmployees: MutableList<ManagerEmployees> = mutableListOf()
-    private var arrCareer: MutableList<String> = mutableListOf()
-    private var arrPhone: MutableList<String> = mutableListOf()
+    private var arrCareer: MutableList<String> = mutableList
     private lateinit var spninerAdapter: ArrayAdapter<String>
-    private lateinit var listAdapter: ArrayAdapter<String>
 
+    private lateinit var listAdapter: ArrayAdapter<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
