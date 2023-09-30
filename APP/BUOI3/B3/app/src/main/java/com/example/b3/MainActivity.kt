@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private var arrEmployees: MutableList<ManagerEmployees> = mutableListOf()
-    private var arrCareer: MutableList<String> = mutableList
+    private var arrCareer: MutableList<String> = mutableListOf()
+    private var arrPhone: MutableList<String> = mutableListOf()
     private lateinit var spninerAdapter: ArrayAdapter<String>
 
     private lateinit var listAdapter: ArrayAdapter<String>
@@ -225,5 +226,3 @@ class MainActivity : AppCompatActivity() {
         listItem = findViewById(R.id.lstItem)
     }
 }
-
-

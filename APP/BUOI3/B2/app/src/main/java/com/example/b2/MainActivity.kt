@@ -41,13 +41,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnDelAll.setOnClickListener {
-            while (true){
-                var index = arrFile.size-1
-                val cacheFile = File(cacheDir, arrFile[index])
-                cacheFile.delete()
-                listAdapter.remove(arrFile[index])
-                if(index==0){
-                    break
+            if((arrFile.size)!=0) {
+                while (true) {
+                    var index = arrFile.size - 1
+                    val cacheFile = File(cacheDir, arrFile[index])
+                    cacheFile.delete()
+                    listAdapter.remove(arrFile[index])
+                    if (index == 0) {
+                        break
+                    }
                 }
             }
             listAdapter.notifyDataSetChanged()
