@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var listAdapter: ArrayAdapter<String>
     private var arrFile: MutableList<String> = mutableListOf()
 
-    var positionSelect:Int = -1
+    private var positionSelect:Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +33,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun addEvents() {
         btnDel.setOnClickListener{
+            val cacheFile = File(cacheDir, arrFile[positionSelect])
+            cacheFile.delete()
+            arrFile.remove(arrFile[positionSelect])
+            listAdapter.remove(arrFile[positionSelect])
+            listAdapter.notifyDataSetChanged()
         }
 
         btnDelAll.setOnClickListener {
+            while (true){
+                var index = arrFile.size-1
+                val cacheFile = File(cacheDir, arrFile[index])
+                cacheFile.delete()
+                listAdapter.remove(arrFile[index])
+                if(index==0){
+                    break
+                }
+            }
+            listAdapter.notifyDataSetChanged()
         }
 
         lstFile.setOnItemClickListener { _, _, position: Int, _ ->
